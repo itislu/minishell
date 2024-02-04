@@ -177,11 +177,11 @@ jobs:
         continue-on-error: true
 
         # Can fail the job
-      - name: 📈 Show the regressions between SOURCE and TARGET branch
+      - name: 📈 Show the regressions from 🎯 TARGET to 🌱 SOURCE branch
         if: steps.comparison.outcome == 'failure'
         run: $HOME/print_changed_test_cases.sh
 
         # Cannot fail the job
-      - name: 📉 Show the improvements between SOURCE and TARGET branch
+      - name: 📉 Show the improvements from 🎯 TARGET to 🌱 SOURCE branch
         if: steps.comparison.outcome == 'success'
         run: $HOME/print_changed_test_cases.sh || true
