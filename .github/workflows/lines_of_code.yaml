@@ -23,7 +23,7 @@ jobs:
           badge      : ./doc/images/lines_of_code.svg
           patterns   : '**/*.c|**/*.h|**/Makefile|**/*.mk|**/*.py|**/*.yaml|**/*.sh|**/*.y|**/*.bnf'
           badge_label: 'lines of code'
-          badge_color: purple
+          badge_color: dark-purple
           badge_style: flat
           debug      : true
 
