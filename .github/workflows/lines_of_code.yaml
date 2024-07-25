@@ -26,7 +26,7 @@ jobs:
           patterns   : '**/*.c|**/*.h|**/Makefile|**/*.mk|**/*.py|**/*.yaml|**/*.sh|**/*.y|**/*.bnf'
           badge_label: 'lines of code'
           badge_color: ${{ env.COLOR }}
-          badge_style: flat
+          badge_style: classic
           debug      : true
 
       - name: Print the output
