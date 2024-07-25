@@ -5,6 +5,8 @@ on:
   push:
     branches:
       - main
+env:
+  COLOR: gold
 
 jobs:
   lines_of_code:
@@ -23,7 +25,7 @@ jobs:
           badge      : ./doc/images/lines_of_code.svg
           patterns   : '**/*.c|**/*.h|**/Makefile|**/*.mk|**/*.py|**/*.yaml|**/*.sh|**/*.y|**/*.bnf'
           badge_label: 'lines of code'
-          badge_color: gold
+          badge_color: ${{ env.COLOR }}
           badge_style: flat
           debug      : true
 
@@ -40,5 +42,5 @@ jobs:
       - name: Commit and push badge
         run : |
           git add ${{ steps.loc.outputs.output_path }}
-          git commit -m "bot: Update lines of code badge [ignore]"
+          git commit -m "bot: Change badge to ${{ env.COLOR }} [ignore]"
           git push
