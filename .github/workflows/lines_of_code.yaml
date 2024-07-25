@@ -6,7 +6,7 @@ on:
     branches:
       - main
 env:
-  COLOR: golden
+  COLOR: silver
 
 jobs:
   lines_of_code:
