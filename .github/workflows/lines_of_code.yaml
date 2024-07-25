@@ -21,7 +21,7 @@ jobs:
 
       - name: Install cloc
         run : |
-          git clone git@github.com:AlDanial/cloc.git ${{ env.CLOC_DIR }}
+          git clone https://github.com/AlDanial/cloc.git ${{ env.CLOC_DIR }}
 
       - name: Count lines by language
         run : |
