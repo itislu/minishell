@@ -26,10 +26,18 @@ jobs:
       - name: 🧮 Count lines by language
         run : |
           ${{ env.CLOC_DIR }}/cloc --fmt=2 --include-lang='C,C/C++ Header,make,YAML,Python,Bourne Shell,Bourne Again Shell,yacc,Markdown,Dockerfile' . | tee ${{ env.CLOC_DIR }}/cloc_output.txt
+          echo "cloc_output.txt:"
+          cat ${{ env.CLOC_DIR }}/cloc_output.txt
+          echo
+          echo "LIENS_OF_CODE:"
+          echo "LINES_OF_CODE=$(grep 'SUM:' ${{ env.CLOC_DIR }}/cloc_output.txt | awk '{print $5}')"
           echo "LINES_OF_CODE=$(grep 'SUM:' ${{ env.CLOC_DIR }}/cloc_output.txt | awk '{print $5}')" >> "$GITHUB_ENV"
 
       - name: 📑 Count lines by file
         run : |
+          echo "env.LINES_OF_CODE:"
+          echo ${{ env.LINES_OF_CODE }}
+          echo
           ${{ env.CLOC_DIR }}/cloc --fmt=5 --include-lang='C,C/C++ Header,make,YAML,Python,Bourne Shell,Bourne Again Shell,yacc,Markdown,Dockerfile' .
 
       - name: Create badge
