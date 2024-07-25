@@ -32,11 +32,13 @@ jobs:
           echo "Scanned: ${{ steps.loc.outputs.counted_files }}";
           echo "Line Count: ${{ steps.loc.outputs.total_lines }}";
 
-      - name: Create badge
-        uses: RubbaBoy/BYOB@v1
-        with:
-          name        : lines_of_code
-          label       : 'lines of code'
-          status      : ${{ steps.loc.outputs.total_lines }}
-          color       : purple
-          github_token: ${{ github.token }}
+      - name: Configure GitHub Actions bot
+        run : |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push badge
+        run : |
+          git add ${{ steps.loc.outputs.output_path }}
+          git commit -m "bot: Update lines of code badge [ignore]"
+          git push
