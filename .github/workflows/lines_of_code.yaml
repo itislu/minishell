@@ -6,7 +6,7 @@ on:
     branches:
       - main
 env:
-  COLOR: '#007fff'
+  COLOR: '60c'
 
 jobs:
   lines_of_code:
