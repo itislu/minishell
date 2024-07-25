@@ -30,8 +30,8 @@ jobs:
           cat ${{ env.CLOC_DIR }}/cloc_output.txt
           echo
           echo "LIENS_OF_CODE:"
-          echo "LINES_OF_CODE=$(grep 'SUM:' ${{ env.CLOC_DIR }}/cloc_output.txt | awk '{print $5}')"
-          echo "LINES_OF_CODE=$(grep 'SUM:' ${{ env.CLOC_DIR }}/cloc_output.txt | awk '{print $5}')" >> "$GITHUB_ENV"
+          echo "LINES_OF_CODE=$(grep 'SUM' ${{ env.CLOC_DIR }}/cloc_output.txt | awk '{print $5}')"
+          echo "LINES_OF_CODE=$(grep 'SUM' ${{ env.CLOC_DIR }}/cloc_output.txt | awk '{print $5}')" >> "$GITHUB_ENV"
 
       - name: 📑 Count lines by file
         run : |
