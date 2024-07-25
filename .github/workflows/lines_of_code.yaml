@@ -19,7 +19,7 @@ jobs:
         uses: shadowmoose/GHA-LoC-Badge@1.0.0
         id  : loc
         with:
-          directory  : ./
+          directory  : '**'
           badge      : ./doc/images/lines_of_code.svg
           patterns   : '*.c|*.h|Makefile|*.mk|*.py|*.yaml|*.sh|*.y|*.bnf'
           badge_label: 'lines of code'
