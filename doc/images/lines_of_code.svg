@@ -1,7 +1,7 @@
 <svg width="128.6" height="20" viewBox="0 0 1286 200" xmlns="http://www.w3.org/2000/svg">
   <g>
     <rect fill="#555" width="796" height="200"/>
-    <rect fill="#darkpurple" x="796" width="490" height="200"/>
+    <rect fill="#9cf" x="796" width="490" height="200"/>
   </g>
   <g fill="#fff" text-anchor="start" font-family="Verdana,DejaVu Sans,sans-serif" font-size="110">
     <text x="60" y="148" textLength="696" fill="#000" opacity="0.1">lines of code</text>
