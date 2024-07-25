@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-env:
-  COLOR: '61A'
 
 jobs:
   lines_of_code:
@@ -25,7 +23,7 @@ jobs:
           badge      : ./doc/images/lines_of_code.svg
           patterns   : '**/*.c|**/*.h|**/Makefile|**/*.mk|**/*.py|**/*.yaml|**/*.sh|**/*.y|**/*.bnf'
           badge_label: 'lines of code'
-          badge_color: ${{ env.COLOR }}
+          badge_color: 61A
           badge_style: classic
           debug      : true
 
@@ -34,13 +32,11 @@ jobs:
           echo "Scanned: ${{ steps.loc.outputs.counted_files }}";
           echo "Line Count: ${{ steps.loc.outputs.total_lines }}";
 
-      - name: Configure GitHub Actions bot
-        run : |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push badge
-        run : |
-          git add ${{ steps.loc.outputs.output_path }}
-          git commit -m "bot: Change badge to ${{ env.COLOR }} [ignore]"
-          git push
+      - name: Create badge
+        uses: RubbaBoy/BYOB@v1
+        with:
+          name        : lines_of_code
+          label       : 'lines of code'
+          status      : ${{ steps.loc.outputs.total_lines }}
+          color       : 61A
+          github_token: ${{ github.token }}
