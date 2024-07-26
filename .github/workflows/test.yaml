@@ -97,6 +97,8 @@ jobs:
     needs: compilation_test
     timeout-minutes: 10
     steps:
+      - name: Checkout source branch of pull request
+        uses: actions/checkout@v4
       - name: Mandatory Part Regression Test
         uses: ./.github/actions/regression_test
         with:
@@ -108,6 +110,8 @@ jobs:
     needs: compilation_test
     timeout-minutes: 10
     steps:
+      - name: Checkout source branch of pull request
+        uses: actions/checkout@v4
       - name: Bonus Part Regression Test
         uses: ./.github/actions/regression_test
         with:
@@ -119,6 +123,8 @@ jobs:
     needs: compilation_test
     timeout-minutes: 10
     steps:
+      - name: Checkout source branch of pull request
+        uses: actions/checkout@v4
       - name: Empty Env Regression Test
         uses: ./.github/actions/regression_test
         with:
@@ -130,6 +136,8 @@ jobs:
     needs: compilation_test
     timeout-minutes: 10
     steps:
+      - name: Checkout source branch of pull request
+        uses: actions/checkout@v4
       - name: Hardcore Regression Test
         uses: ./.github/actions/regression_test
         with:

@@ -19,9 +19,6 @@ outputs:
 run:
   using: composite
     steps:
-      - name: Checkout source branch of pull request
-        uses: actions/checkout@v4
-
       - name: Set up test environment
         uses: ./.github/actions/setup
 
