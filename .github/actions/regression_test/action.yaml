@@ -18,50 +18,50 @@ outputs:
 
 run:
   using: composite
-    steps:
-      - name: Set up test environment
-        uses: ./.github/actions/setup
+  steps:
+    - name: Set up test environment
+      uses: ./.github/actions/setup
 
-      - name: 🌱 Test source branch of pull request
-        run: |
-          make re CC=clang-12
-          ${{ env.TESTER_DIR }}/tester.sh ${{ inputs.test_mode }} > ${{ env.HOME }}/source_test_result.txt
-        env:
-          GH_BRANCH: SOURCE_FAILED_COUNT
+    - name: 🌱 Test source branch of pull request
+      run: |
+        make re CC=clang-12
+        ${{ env.TESTER_DIR }}/tester.sh ${{ inputs.test_mode }} > ${{ env.HOME }}/source_test_result.txt
+      env:
+        GH_BRANCH: SOURCE_FAILED_COUNT
 
-      - name: Save tester output to home directory
-        run: mv -f tester_output ${{ env.HOME }} || true
+    - name: Save tester output to home directory
+      run: mv -f tester_output ${{ env.HOME }} || true
 
-      - name: 📝 Print all test cases that failed on source branch
-        run: ${{ env.SCRIPTS_DIR }}/print_all_failed_test_cases.sh
-        env:
-          RESULT_FILE: ${{ env.HOME }}/source_test_result.txt
-          TESTER_OUTPUT_DIR: ${{ env.HOME }}/tester_output
+    - name: 📝 Print all test cases that failed on source branch
+      run: ${{ env.SCRIPTS_DIR }}/print_all_failed_test_cases.sh
+      env:
+        RESULT_FILE: ${{ env.HOME }}/source_test_result.txt
+        TESTER_OUTPUT_DIR: ${{ env.HOME }}/tester_output
 
-      - name: Checkout target branch of pull request
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.base_ref }}
+    - name: Checkout target branch of pull request
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.base_ref }}
 
-      - name: 🎯 Test target branch of pull request
-        run: |
-          make re CC=clang-12
-          ${{ env.TESTER_DIR }}/tester.sh ${{ inputs.test_mode }} > ${{ env.HOME }}/target_test_result.txt
-        env:
-          GH_BRANCH: TARGET_FAILED_COUNT
+    - name: 🎯 Test target branch of pull request
+      run: |
+        make re CC=clang-12
+        ${{ env.TESTER_DIR }}/tester.sh ${{ inputs.test_mode }} > ${{ env.HOME }}/target_test_result.txt
+      env:
+        GH_BRANCH: TARGET_FAILED_COUNT
 
-      - name: Checkout source branch of pull request
-        uses: actions/checkout@v4
+    - name: Checkout source branch of pull request
+      uses: actions/checkout@v4
 
-      - name: 📜 Summarize regression test result
-        uses: ./.github/actions/summary_test_result
-        env:
-          SOURCE_FAILED_COUNT: ${{ env.SOURCE_FAILED_COUNT }}
-          TARGET_FAILED_COUNT: ${{ env.TARGET_FAILED_COUNT }}
-          TESTER_OUTPUT_DIR: ${{ env.HOME }}/tester_output
+    - name: 📜 Summarize regression test result
+      uses: ./.github/actions/summary_test_result
+      env:
+        SOURCE_FAILED_COUNT: ${{ env.SOURCE_FAILED_COUNT }}
+        TARGET_FAILED_COUNT: ${{ env.TARGET_FAILED_COUNT }}
+        TESTER_OUTPUT_DIR: ${{ env.HOME }}/tester_output
 
-      - name: Output source and target failed count
-        id: output_failed_count
-        run: |
-          echo "source_failed_count=${{ env.SOURCE_FAILED_COUNT }}" >> $GITHUB_ENV
-          echo "target_failed_count=${{ env.TARGET_FAILED_COUNT }}" >> $GITHUB_ENV
+    - name: Output source and target failed count
+      id: output_failed_count
+      run: |
+        echo "source_failed_count=${{ env.SOURCE_FAILED_COUNT }}" >> $GITHUB_ENV
+        echo "target_failed_count=${{ env.TARGET_FAILED_COUNT }}" >> $GITHUB_ENV
