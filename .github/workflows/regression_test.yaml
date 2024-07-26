@@ -24,7 +24,7 @@ env:
 
 jobs:
   regression_test:
-    name: Run Regression Test
+    name: Regression Test
     runs-on: ubuntu-latest
     timeout-minutes: 10
     outputs:
