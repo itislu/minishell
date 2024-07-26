@@ -26,6 +26,9 @@ jobs:
         run : |
           git clone https://github.com/AlDanial/cloc.git ${{ env._CLOC_DIR }}
 
+      - name: Install pandoc
+        uses: pandoc/actions/setup@{main}
+
       - name: 🧮 Count lines by language
         run : |
           ${{ env._CLOC_DIR }}/cloc --fmt=2 --include-lang="${{ env.LANGUAGES }}" . | tee ${{ env._CLOC_DIR }}/cloc_output.txt
@@ -45,16 +48,7 @@ jobs:
           color       : "${{ env.BADGE_COLOR }}"
           github_token: "${{ github.token }}"
 
-      - name: Generate files
-        run: |
-          ${{ env._CLOC_DIR }}/cloc --fmt=5 --include-lang="${{ env.LANGUAGES }}" . | tee ${{ env._CLOC_DIR }}/cloc_output.txt
-
-      - name: Pandoc
-        uses: docker://pandoc/core:2.9
-        with:
-          args: "-t gfm ${{ env._CLOC_DIR }}/cloc_output.txt -o ${{ env._CLOC_DIR }}/cloc_output.md"
-
-      - name: Add to job summary
+      - name: Add all files to job summary
         run: |
           echo "## Lines of Code" >> $GITHUB_STEP_SUMMARY
-          cat ${{ env._CLOC_DIR }}/cloc_output.md >> $GITHUB_STEP_SUMMARY
+          ${{ env._CLOC_DIR }}/cloc --fmt=5 --include-lang="${{ env.LANGUAGES }}" . | pandoc -t gfm >> $GITHUB_STEP_SUMMARY
