@@ -51,4 +51,4 @@ jobs:
       - name: Add all files to job summary
         run: |
           echo "## Lines of Code" >> $GITHUB_STEP_SUMMARY
-          ${{ env._CLOC_DIR }}/cloc --fmt=5 --include-lang="${{ env.LANGUAGES }}" . | pandoc -t gfm >> $GITHUB_STEP_SUMMARY
+          ${{ env._CLOC_DIR }}/cloc --fmt=5 --include-lang="${{ env.LANGUAGES }}" . | pandoc -t markdown >> $GITHUB_STEP_SUMMARY
