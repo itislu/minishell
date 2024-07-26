@@ -7,6 +7,14 @@ inputs:
     description: Test mode (m, b, ne, d, a)
     required: true
     type: string
+  tester_dir:
+    description: Directory of tester
+    required: true
+    type: string
+  scripts_dir:
+    description: Directory of scripts
+    required: true
+    type: string
 
 outputs:
   source_failed_count:
@@ -15,6 +23,13 @@ outputs:
   target_failed_count:
     description: Number of failed test cases on target branch
     value: ${{ env.TARGET_FAILED_COUNT }}
+
+env:
+  HOME: /home/runner
+  TESTER_DIR: ${{ inputs.tester_dir }}
+  SCRIPTS_DIR: ${{ inputs.scripts_dir }}
+  SOURCE_FAILED_COUNT: 0
+  TARGET_FAILED_COUNT: 0
 
 run:
   using: composite

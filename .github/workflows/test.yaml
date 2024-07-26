@@ -103,6 +103,8 @@ jobs:
         uses: ./.github/actions/regression_test
         with:
           test_mode: 'm'
+          tester_dir: ${{ env.TESTER_DIR }}
+          scripts_dir: ${{ env.SCRIPTS_DIR }}
 
   bonus_regression_test:
     name: Bonus Part Regression Test
@@ -116,6 +118,8 @@ jobs:
         uses: ./.github/actions/regression_test
         with:
           test_mode: 'b'
+          tester_dir: ${{ env.TESTER_DIR }}
+          scripts_dir: ${{ env.SCRIPTS_DIR }}
 
   empty_env_regression_test:
     name: Empty Env Regression Test
@@ -129,6 +133,8 @@ jobs:
         uses: ./.github/actions/regression_test
         with:
           test_mode: 'ne'
+          tester_dir: ${{ env.TESTER_DIR }}
+          scripts_dir: ${{ env.SCRIPTS_DIR }}
 
   hardcore_regression_test:
     name: Hardcore Regression Test
@@ -142,3 +148,5 @@ jobs:
         uses: ./.github/actions/regression_test
         with:
           test_mode: 'd'
+          tester_dir: ${{ env.TESTER_DIR }}
+          scripts_dir: ${{ env.SCRIPTS_DIR }}
