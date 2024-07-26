@@ -53,7 +53,7 @@ jobs:
         run: mv -f tester_output ${{ env.HOME }} || true
 
       - name: 📝 Print all test cases that failed on source branch
-        run: ${{ env.SCRIPTS_DIR }}/print_all_failed_test_cases.sh
+        run: ${{ env.SCRIPTS_DIR }}/print_all_failed_test_cases.sh > ${{ env.HOME }}/source_failed_test_cases.txt
         env:
           RESULT_FILE: ${{ env.HOME }}/source_test_result.txt
           TESTER_OUTPUT_DIR: ${{ env.HOME }}/tester_output
@@ -79,3 +79,11 @@ jobs:
           SOURCE_FAILED_COUNT: ${{ env.SOURCE_FAILED_COUNT }}
           TARGET_FAILED_COUNT: ${{ env.TARGET_FAILED_COUNT }}
           TESTER_OUTPUT_DIR: ${{ env.HOME }}/tester_output
+
+      - name: Create markdown summary
+        id: create_summary
+        run: |
+          echo "## Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- [Print failed source](#print-failed-source)" >> $GITHUB_STEP_SUMMARY
+          echo "### Print failed source" >> $GITHUB_STEP_SUMMARY
+          cat ${{ env.HOME }}/source_failed_test_cases.txt >> $GITHUB_STEP_SUMMARY
