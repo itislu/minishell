@@ -27,7 +27,7 @@ jobs:
           git clone https://github.com/AlDanial/cloc.git ${{ env._CLOC_DIR }}
 
       - name: Install pandoc
-        uses: pandoc/actions/setup@{main}
+        uses: pandoc/actions/setup@main
 
       - name: 🧮 Count lines by language
         run : |
