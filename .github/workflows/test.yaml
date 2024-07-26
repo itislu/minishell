@@ -93,60 +93,28 @@ jobs:
 
   mand_regression_test:
     name: Mandatory Part Regression Test
-    runs-on: ubuntu-latest
     needs: compilation_test
-    timeout-minutes: 10
-    steps:
-      - name: Checkout source branch of pull request
-        uses: actions/checkout@v4
-      - name: Mandatory Part Regression Test
-        uses: ./.github/actions/regression_test
-        with:
-          test_mode: 'm'
-          tester_dir: ${{ env.TESTER_DIR }}
-          scripts_dir: ${{ env.SCRIPTS_DIR }}
+    uses: ./.github/workflows/regression_test.yaml
+    with:
+      test_mode: 'm'
 
   bonus_regression_test:
     name: Bonus Part Regression Test
-    runs-on: ubuntu-latest
     needs: compilation_test
-    timeout-minutes: 10
-    steps:
-      - name: Checkout source branch of pull request
-        uses: actions/checkout@v4
-      - name: Bonus Part Regression Test
-        uses: ./.github/actions/regression_test
-        with:
-          test_mode: 'b'
-          tester_dir: ${{ env.TESTER_DIR }}
-          scripts_dir: ${{ env.SCRIPTS_DIR }}
+    uses: ./.github/workflows/regression_test.yaml
+    with:
+      test_mode: 'b'
 
   empty_env_regression_test:
     name: Empty Env Regression Test
-    runs-on: ubuntu-latest
     needs: compilation_test
-    timeout-minutes: 10
-    steps:
-      - name: Checkout source branch of pull request
-        uses: actions/checkout@v4
-      - name: Empty Env Regression Test
-        uses: ./.github/actions/regression_test
-        with:
-          test_mode: 'ne'
-          tester_dir: ${{ env.TESTER_DIR }}
-          scripts_dir: ${{ env.SCRIPTS_DIR }}
+    uses: ./.github/workflows/regression_test.yaml
+    with:
+      test_mode: 'ne'
 
   hardcore_regression_test:
     name: Hardcore Regression Test
-    runs-on: ubuntu-latest
     needs: compilation_test
-    timeout-minutes: 10
-    steps:
-      - name: Checkout source branch of pull request
-        uses: actions/checkout@v4
-      - name: Hardcore Regression Test
-        uses: ./.github/actions/regression_test
-        with:
-          test_mode: 'd'
-          tester_dir: ${{ env.TESTER_DIR }}
-          scripts_dir: ${{ env.SCRIPTS_DIR }}
+    uses: ./.github/workflows/regression_test.yaml
+    with:
+      test_mode: 'd'
