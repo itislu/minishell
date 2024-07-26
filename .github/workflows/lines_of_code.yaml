@@ -52,7 +52,7 @@ jobs:
       - name: Pandoc
         uses: docker://pandoc/core:2.9
         with:
-          args: "-t markdown ${{ env._CLOC_DIR }}/cloc_output.txt -o ${{ env._CLOC_DIR }}/cloc_output.md"
+          args: "-t gfm ${{ env._CLOC_DIR }}/cloc_output.txt -o ${{ env._CLOC_DIR }}/cloc_output.md"
 
       - name: Add to job summary
         run: |
