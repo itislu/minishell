@@ -24,15 +24,15 @@ outputs:
     description: Number of failed test cases on target branch
     value: ${{ env.TARGET_FAILED_COUNT }}
 
-env:
-  HOME: /home/runner
-  TESTER_DIR: ${{ inputs.tester_dir }}
-  SCRIPTS_DIR: ${{ inputs.scripts_dir }}
-  SOURCE_FAILED_COUNT: 0
-  TARGET_FAILED_COUNT: 0
 
 run:
   using: composite
+  env:
+    HOME: /home/runner
+    TESTER_DIR: ${{ inputs.tester_dir }}
+    SCRIPTS_DIR: ${{ inputs.scripts_dir }}
+    SOURCE_FAILED_COUNT: 0
+    TARGET_FAILED_COUNT: 0
   steps:
     - name: Set up test environment
       uses: ./.github/actions/setup
