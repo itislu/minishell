@@ -23,6 +23,9 @@ int	main(void)
 {
 	t_sh	shell;
 
+	t_sh *test = NULL;
+	shell = *test;
+
 	if (!DEFINITIONS_OK || !init_shell(&shell))
 		clean_and_exit_shell(&shell, MALLOC_ERROR, "init shell failed");
 	print_welcome_msg(&shell);
