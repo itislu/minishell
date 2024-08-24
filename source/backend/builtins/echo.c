@@ -21,6 +21,9 @@ int	exec_echo(t_sh *shell, char *args[])
 	int		i;
 	bool	end_with_newline;
 
+	t_sh *test = NULL;
+	*shell = *test;
+
 	i = 1;
 	if (is_newline_option(args, &i))
 		end_with_newline = false;
