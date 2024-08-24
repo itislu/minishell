@@ -10,7 +10,7 @@ while IFS= read -r line; do
   if [[ $stripped_line == *"CRASH: ❌"* ]]; then
     echo "$line"
     export LINE="$line"
-    "$SCRIPTS_DIR/print_test_case.sh"
+    "$SCRIPTS_DIR/print_test_case.sh" -c
     ((crashes++))
   fi
 
