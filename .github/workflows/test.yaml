@@ -110,11 +110,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - test_mode: a
-            test_name: 💥 Check for crashes
-          - test_mode: a --no-env
-            test_name: 💥 Check for crashes with empty env
+        test_mode: [a, a --no-env]
     env:
       TESTER_OUTPUT_DIR: /home/runner/tester_output
       LOG_FILE: /home/runner/crash_test.log
@@ -126,7 +122,7 @@ jobs:
         with:
           tester_dir: ${{ env.TESTER_DIR }}
           scripts_dir: ${{ env.SCRIPTS_DIR }}
-      - name: ${{ matrix.test_name }}
+      - name: 💥 Check for crashes
         run: |
           make re CC=clang-12
           ${{ env.TESTER_DIR }}/tester.sh --no-update ${{ matrix.test_mode }} > ${{ env.LOG_FILE }}
