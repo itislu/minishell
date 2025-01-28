@@ -6,7 +6,7 @@
 /*   By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/15 00:03:55 by ldulling          #+#    #+#             */
-/*   Updated: 2024/01/17 11:54:23 by ldulling         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:46:38 by ldulling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
  * @param lst     The address of the pointer to the list to remove a node from.
  * @param node    The address of the node to be removed.
  * @param del     The function to free the content of the node with.
- *
- * @return        No return value.
  *
  */
 void	ft_lstdrop_node_d(t_list_d **lst, t_list_d **node, void (*del)(void *))

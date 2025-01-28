@@ -6,7 +6,7 @@
 /*   By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 03:10:28 by ldulling          #+#    #+#             */
-/*   Updated: 2023/12/20 19:12:03 by ldulling         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:47:23 by ldulling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
  *
  * @param ptr    A double pointer to the memory to be freed.
  *               If ptr or *ptr is NULL, the function does nothing.
- *
- * @return       No return value.
  *
  */
 void	ft_free_and_null(void **ptr)

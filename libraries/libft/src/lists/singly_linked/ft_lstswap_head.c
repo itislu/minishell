@@ -6,7 +6,7 @@
 /*   By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/23 11:52:20 by ldulling          #+#    #+#             */
-/*   Updated: 2023/12/23 12:08:21 by ldulling         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:47:33 by ldulling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
  * list.
  *
  * @param lst    A double pointer to the first node of the list.
- *
- * @return       No return value.
  *
  * @note         The function does nothing if the list is empty or contains only
  *               one node.

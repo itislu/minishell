@@ -6,9 +6,11 @@
 #    By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 03:22:46 by ldulling          #+#    #+#              #
-#    Updated: 2025/01/24 23:53:02 by ldulling         ###   ########.fr        #
+#    Updated: 2025/01/26 23:14:59 by ldulling         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+SHELL			:=	/bin/bash
 
 
 # ***************************** CONFIGURATION ******************************** #
@@ -44,7 +46,7 @@ BUILDFILES		:=	Makefile \
 
 CC				?=	cc
 CC_VERSION		:=	$(shell $(CC) --version | head -1)
-CFLAGS_STD		:=	-Wall -Wextra -Werror
+CFLAGS_STD		:=	-Wall -Wextra -Werror -Wdocumentation
 CFLAGS_DBG		:=	-ggdb3
 CFLAGS_SAN		:=	-fsanitize=address,undefined,bounds,float-divide-by-zero
 CFLAGS_OPT		:=	-O3
@@ -127,8 +129,6 @@ DEP_SUBDIRS		:=	$(sort $(dir $(DEP)))
 # *************************** BUILD PREPARATION ****************************** #
 
 export				CC CFLAGS MAKECMDGOALS MAKEFLAGS
-
-SHELL			:=	/bin/bash
 
 PHONY_TARGETS	:=	all run noenv nocolor opt san val valfd term clear modes re \
 					build lib waitforlib clean fclean ffclean

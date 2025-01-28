@@ -6,7 +6,7 @@
 /*   By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 16:04:12 by ldulling          #+#    #+#             */
-/*   Updated: 2023/12/28 11:43:13 by ldulling         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:47:37 by ldulling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,6 @@
  *               inserted.
  *               If *lst is NULL, the new node is set as the first node.
  * @param new    The new node or list to be inserted into the list.
- *
- * @return       No return value.
  *
  */
 void	ft_lstinsert_after(t_list **lst, t_list *new)

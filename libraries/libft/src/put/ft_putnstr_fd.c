@@ -6,7 +6,7 @@
 /*   By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/22 19:26:30 by ldulling          #+#    #+#             */
-/*   Updated: 2023/12/20 19:15:17 by ldulling         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:46:45 by ldulling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * The ft_putnstr_fd function writes up to n characters of a string to the given
  * file descriptor.
  *
- * @param str    The string to write.
+ * @param s      The string to write.
  * @param n      The maximum number of characters to write.
  * @param fd     The file descriptor to write to.
  *

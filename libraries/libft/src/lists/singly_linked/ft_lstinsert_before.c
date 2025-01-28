@@ -6,7 +6,7 @@
 /*   By: ldulling <ldulling@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/27 13:15:15 by ldulling          #+#    #+#             */
-/*   Updated: 2024/03/27 14:01:12 by ldulling         ###   ########.fr       */
+/*   Updated: 2025/01/27 02:46:21 by ldulling         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@
  * @param cur    The node before which the new node or list should be inserted.
  *               If cur cannot be found in lst, the function does nothing.
  * @param new    The new node or list to be inserted into the list.
- *
- * @return       No return value.
  *
  */
 void	ft_lstinsert_before(t_list **lst, t_list *cur, t_list *new)
