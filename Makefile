@@ -46,7 +46,7 @@ BUILDFILES		:=	Makefile \
 
 CC				?=	cc
 CC_VERSION		:=	$(shell $(CC) --version | head -1)
-CFLAGS_STD		:=	-Wall -Wextra -Werror -Wdocumentation
+CFLAGS_STD		:=	-Wall -Wextra -Werror
 CFLAGS_DBG		:=	-ggdb3
 CFLAGS_SAN		:=	-fsanitize=address,undefined,bounds,float-divide-by-zero
 CFLAGS_OPT		:=	-O3
