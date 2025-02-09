@@ -1,3 +1,4 @@
 [submodule "doc"]
 	path = doc
 	url = git@github.com:itislu/minishell-docs-test.git
+	branch = main
